@@ -13,6 +13,18 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
+from mysql.connector import MySQLConnection
+
+config = {
+  'user': 'alkem',
+  'password': 'password',
+  'host': '127.0.0.1',
+  'database': 'alkembot',
+  'raise_on_warnings': True
+}
+
+
+
 class ActionDescription(Action):
 
     def name(self) -> Text:
@@ -25,7 +37,16 @@ class ActionDescription(Action):
         print('I was called')
         product_brand = tracker.get_slot('ProductBrand')
         if product_brand is not None:
-            dispatcher.utter_message(f"This is the description of {product_brand}")
+            cnx = MySQLConnection(**config)
+            cursor = cnx.cursor()
+            cursor.execute(f"select desciption from bot_product_brand where name = '{product_brand}'")
+            product_description = cursor.fetchone()
+            print(type(product_description))
+            product_description = str(product_description[0])
+            cursor.close()
+            cnx.close()
+
+            dispatcher.utter_message(product_description)
         else :
             dispatcher.utter_message("Hello World!")
 

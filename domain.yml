@@ -106,12 +106,9 @@ entities:
 - ProductBrand
 - Division
 - Product
-
-
 slots:
   ProductBrand:
     type: text
-
 templates:
   utter_agent.acquaintance:
   - text: I'm a virtual agent
@@ -560,5 +557,4 @@ actions:
 - utter_confirmation.yes
 - utter_confirmation.cancel
 - utter_confirmation.no
-
 - action_description

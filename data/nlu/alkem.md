@@ -5,6 +5,8 @@
 - Tell me something about facilities Alkem provides
 - Describe Alkem
 - Alkem
+
+
 - Tell me something about [Bergen ASTA](Division)
 - I wish to know about [Bergen ASTA](Division)
 - What is [Bergen NOVA](Division)
@@ -17,7 +19,6 @@
 - I wish to know about [Bone](ProductLine)
 - Tell me about [Bone](ProductLine)
 - Can you tell me something about [Bone](ProductLine)
-- I wish to know about [Bone](ProductLine)
 - Describe [Gemcal](ProductBrand)
 - Define [Gemcal](ProductBrand)
 - Explain [Gemcal](ProductBrand)
@@ -41,7 +42,6 @@
 - Products for [Skin](ProductLine)
 - What are the products offered by Alkem
 - Products by Alkem
-
 
 ## intent:ProductLineist
 - What does Alkem Offer
@@ -115,4 +115,3 @@
 - When should I use this [Nervmax](ProductBrand)
 - In what situation this [Nervmax](ProductBrand) will help me
 - Why should I use [Nervmax](ProductBrand)
-

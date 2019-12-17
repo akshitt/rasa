@@ -23,31 +23,57 @@ config = {
   'raise_on_warnings': True
 }
 
+def query_db(sql_code):
+    cnx = MySQLConnection(**config)
+    cursor = cnx.cursor()
+    cursor.execute(sql_code)
+    data = cursor.fetchone()
+    cursor.close()
+    cnx.close()
+    return data
 
+#!----------------------------------------------------------------------------------------------------
 
-class ActionDescription(Action):
+class ActionProductBrandDescription(Action):
 
     def name(self) -> Text:
-        return "action_description"
+        return "action_product_brand_description"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        print('I was called')
         product_brand = tracker.get_slot('ProductBrand')
         if product_brand is not None:
-            cnx = MySQLConnection(**config)
-            cursor = cnx.cursor()
-            cursor.execute(f"select desciption from bot_product_brand where name = '{product_brand}'")
-            product_description = cursor.fetchone()
-            print(type(product_description))
-            product_description = str(product_description[0])
-            cursor.close()
-            cnx.close()
-
-            dispatcher.utter_message(product_description)
+            
+            sql_code = f"select desciption from bot_product_brand where name = '{product_brand}'"
+            data = query_db(sql_code)
+            description = str(data[0])
+            dispatcher.utter_message(description)
         else :
-            dispatcher.utter_message("Hello World!")
+            dispatcher.utter_message("Sorry, I couldn't exactly understand what you were trying to convey")
 
         return []
+
+#!----------------------------------------------------------------------------------------------------
+
+class ActionProductLineDescription(Action):
+
+    def name(self) -> Text:
+        return "action_product_line_description"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        product_line = tracker.get_slot('ProductLine')
+        if product_line is not None:
+            sql_code = f"select desciption from bot_product_line where name = '{product_line}'"
+            data = query_db(sql_code)
+            description = str(data[0])
+            dispatcher.utter_message(description)
+        else :
+            dispatcher.utter_message("Sorry, I couldn't exactly understand what you were trying to convey")
+
+        return []
+

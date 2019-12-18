@@ -16,8 +16,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from mysql.connector import MySQLConnection
 
 config = {
-  'user': 'alkem',
-  'password': 'password',
+  'user': 'root',
+  'password': 'root',
   'host': '127.0.0.1',
   'database': 'alkembot',
   'raise_on_warnings': True
@@ -32,9 +32,16 @@ def query_db(sql_code):
     cnx.close()
     return data
 
+dict_intent = {'ProductBrandDescription':'desciption', 'ProductBrandMRPDescription':'mrp',
+ 'ProductBrandRoleofIngredientsDescription': 'role_of_ingredients',
+ 'ProductBrandStrengthDescription':'strength' , 'ProductBrandTargetCustomersDescription':'target_customers',
+  'ProductBrandUSPsDescription':'usps', 'ProductFormDescription':'form_id',
+ 'ProductBrandCompetitorsDescription':'competitors', 'ProductBrandCompositionDescription':'composition',
+  'ProductBrandDosageDescription':'dosage', 'ProductBrandIndicationDescription':'indication'}
+
 #!----------------------------------------------------------------------------------------------------
 
-class ActionProductBrandDescription(Action):
+class ActionProductBrand(Action):
 
     def name(self) -> Text:
         return "action_product_brand_description"
@@ -44,9 +51,10 @@ class ActionProductBrandDescription(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         product_brand = tracker.get_slot('ProductBrand')
+        intent = tracker.latest_message["intent"].get("name")
         if product_brand is not None:
-            
-            sql_code = f"select desciption from bot_product_brand where name = '{product_brand}'"
+            column_db = dict_intent[intent]
+            sql_code = f"select {column_db} from bot_product_brand where name = '{product_brand}'"
             data = query_db(sql_code)
             description = str(data[0])
             dispatcher.utter_message(description)
@@ -55,25 +63,4 @@ class ActionProductBrandDescription(Action):
 
         return []
 
-#!----------------------------------------------------------------------------------------------------
-
-class ActionProductLineDescription(Action):
-
-    def name(self) -> Text:
-        return "action_product_line_description"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        product_line = tracker.get_slot('ProductLine')
-        if product_line is not None:
-            sql_code = f"select desciption from bot_product_line where name = '{product_line}'"
-            data = query_db(sql_code)
-            description = str(data[0])
-            dispatcher.utter_message(description)
-        else :
-            dispatcher.utter_message("Sorry, I couldn't exactly understand what you were trying to convey")
-
-        return []
 

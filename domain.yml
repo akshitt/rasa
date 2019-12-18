@@ -109,6 +109,8 @@ entities:
 slots:
   ProductBrand:
     type: text
+  ProductLine:
+    type: text
 templates:
   utter_agent.acquaintance:
   - text: I'm a virtual agent
@@ -557,4 +559,5 @@ actions:
 - utter_confirmation.yes
 - utter_confirmation.cancel
 - utter_confirmation.no
-- action_description
+- action_product_line_description
+- action_product_brand_description

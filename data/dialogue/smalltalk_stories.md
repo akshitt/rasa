@@ -342,10 +342,28 @@
 *confirmation.no
     - utter_confirmation.no
 
+
+
+
+
+
 ## describe_product_brand
 *Description{"ProductBrand": "gemcal"}
     -slot{"ProductBrand": "gemcal"}
-    - action_description
+    - action_product_brand_description
+
+
+## describe_product_line
+*Description{"ProductLine": "skin"}
+    -slot{"ProductLine": "skin"}
+    - action_product_line_description
+
+
+
+
+
+
+
 
 ## Generated Story -1957476507798035057
 *greetings.hello

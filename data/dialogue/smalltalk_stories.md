@@ -347,27 +347,60 @@
 
 
 
-## describe_product_brand
-*Description{"ProductBrand": "gemcal"}
+## product_brand_description
+*ProductBrandDescription{"ProductBrand": "gemcal"}
     -slot{"ProductBrand": "gemcal"}
-    - action_product_brand_description
+    - action_product_brand
 
-
-## describe_product_line
-*Description{"ProductLine": "skin"}
-    -slot{"ProductLine": "skin"}
-    - action_product_line_description
-
-## product_brand_dosage
-*ProductBrandDosageDescription{"ProductBrand": "gemcal"}
+## product_brand_mrp
+*ProductBrandMRPDescription{"ProductBrand": "gemcal"}
     -slot{"ProductBrand": "gemcal"}
-    - action_brand_dosage_description   
+    - action_product_brand
 
-
-## product_brand_dosage
+## product_brand_role_of_ingredients
 *ProductBrandRoleofIngredientsDescription{"ProductBrand": "gemcal"}
     -slot{"ProductBrand": "gemcal"}
-    - action_role_of_ingredients_description   
+    - action_product_brand
+
+## product_brand_strength_description
+*ProductBrandStrengthDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_target
+*ProductBrandTargetCustomersDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_usps
+*ProductBrandUSPsDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_form
+*ProductFormDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_competitor
+*ProductBrandCompetitorsDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_composition
+*ProductBrandCompositionDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand
+
+## product_brand_dosage_description
+*ProductBrandDosageDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand   
+
+## product_brand_dosage_indication
+*ProductBrandIndicationDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_product_brand   
 
 
 

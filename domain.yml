@@ -85,7 +85,6 @@ intents:
 - confirmation.yes
 - confirmation.cancel
 - confirmation.no
-
 - ProductBrandDosageDescription
 - ProductBrandRoleofIngredientsDescription
 - ProductLineList
@@ -103,23 +102,22 @@ intents:
 - ProductBrandIndicationDescription
 - ProductBrandList
 - ProductBrandCompositionDescription
-
 - agent.what_can_do
 - features
-
+- ProductLineist
+- Description
 entities:
 - ProductLine
 - ProductBrand
 - Division
-
+- Product
 slots:
+  Division:
+    type: text
   ProductBrand:
     type: text
   ProductLine:
     type: text
-  Division:
-    type: text
-
 templates:
   utter_agent.acquaintance:
   - text: I'm a virtual agent
@@ -568,5 +566,4 @@ actions:
 - utter_confirmation.yes
 - utter_confirmation.cancel
 - utter_confirmation.no
-- action_product_line_description
-- action_product_brand_description
+- action_product_brand

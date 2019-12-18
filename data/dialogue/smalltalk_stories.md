@@ -358,9 +358,16 @@
     -slot{"ProductLine": "skin"}
     - action_product_line_description
 
+## product_brand_dosage
+*ProductBrandDosageDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_brand_dosage_description   
 
 
-
+## product_brand_dosage
+*ProductBrandRoleofIngredientsDescription{"ProductBrand": "gemcal"}
+    -slot{"ProductBrand": "gemcal"}
+    - action_role_of_ingredients_description   
 
 
 

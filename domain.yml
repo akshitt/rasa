@@ -87,8 +87,11 @@ intents:
 - confirmation.no
 - ProductBrandDosageDescription
 - ProductBrandRoleofIngredientsDescription
-- ProductLineist
-- Description
+- ProductLineList
+- CompanyDescription
+- DivisionDescription
+- ProductLineDescription
+- ProductBrandDescription
 - ProductFormDescription
 - ProductBrandTargetCustomersDescription
 - ProductBrandUSPsDescription
@@ -98,15 +101,19 @@ intents:
 - ProductBrandCompetitorsDescription
 - ProductBrandIndicationDescription
 - ProductBrandList
-- agent.what_can_do
 - ProductBrandCompositionDescription
+- agent.what_can_do
 - features
+- ProductLineist
+- Description
 entities:
 - ProductLine
 - ProductBrand
 - Division
 - Product
 slots:
+  Division:
+    type: text
   ProductBrand:
     type: text
   ProductLine:
@@ -561,3 +568,7 @@ actions:
 - utter_confirmation.no
 - action_product_line_description
 - action_product_brand_description
+- action_division_description
+- action_division_list
+- action_product_brand
+- action_product_line_list

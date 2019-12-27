@@ -1,0 +1,15 @@
+2019-12-24 16:37:18,886 [INFO ]  Starting Rasa server on http://localhost:5005
+2019-12-24 16:37:22,115 [INFO ]  Entry Point [tensor2tensor.envs.tic_tac_toe_env:TicTacToeEnv] registered with id [T2TEnv-TicTacToeEnv-v0]
+2019-12-26 20:56:26,089 [INFO ]  Starting Rasa server on http://localhost:5005
+2019-12-26 20:56:28,369 [INFO ]  Entry Point [tensor2tensor.envs.tic_tac_toe_env:TicTacToeEnv] registered with id [T2TEnv-TicTacToeEnv-v0]
+2019-12-26 20:57:53,986 [ERROR]  Exception occurred while handling uri: unknown
+NoneType: None
+2019-12-26 21:18:27,312 [ERROR]  Exception occurred while handling uri: 'http://localhost:5005/webhooks/rest/webhook'
+Traceback (most recent call last):
+  File "/home/adeem/rasa/myvenv/lib/python3.6/site-packages/sanic/app.py", line 918, in handle_request
+    handler, args, kwargs, uri = self.router.get(request)
+  File "/home/adeem/rasa/myvenv/lib/python3.6/site-packages/sanic/router.py", line 407, in get
+    return self._get(request.path, request.method, "")
+  File "/home/adeem/rasa/myvenv/lib/python3.6/site-packages/sanic/router.py", line 447, in _get
+    raise method_not_supported
+sanic.exceptions.MethodNotSupported: Method GET not allowed for URL /webhooks/rest/webhook
